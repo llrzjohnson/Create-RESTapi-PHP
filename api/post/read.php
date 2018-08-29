@@ -22,10 +22,10 @@ $num = $result->rowCount();
 
 // Check if any post
 
-if (num > 0) {
+if ($num > 0) {
     //Post array
-    $post_arr = array();
-    $post_arr['data'] = array();
+    $posts_arr = array();
+    $posts_arr['data'] = array();
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -39,8 +39,8 @@ if (num > 0) {
             'category_name' => $category_name
         );
 
-        //Push to "data"    
-        array_push($post_arr['data'], $post_item);
+        //Push to "data"
+        array_push($posts_arr['data'], $post_item);
     }
 
     // Turn to JSON & output
@@ -55,5 +55,3 @@ if (num > 0) {
     );
 
 }
-
-
